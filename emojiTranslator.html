@@ -1,18 +1,44 @@
 <html>
   <head>
     <title>Text to Emoji Translator</title>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="firebase-as-array.js"></script>
   </head>
   <body>
     <h1>Emoji Translator!</h1>
     <fieldset>
       <legend>Text to Translate:</legend>
       <form>
-	<textarea type="text" name="input" rows="5" cols="25">Test message.</textarea>
-	<br>
-	<input type="submit" value="Go!">
+	       <textarea type="text" name="input" rows="5" cols="25">Test message.</textarea>
+	       <br>
+	       <input type="submit" value="Go!">
       </form>
     </fieldset>
     <fieldset>
       <legend>Translation:</legend>
     </fieldset>
-  </body>
+    <div id='messagesDiv'></div>
+    <input type='text' id='emojicode' placeholder='Unicode'>
+    <input type='text' id='annotation' placeholder='Annotation'>
+
+</body>
+  <script>
+    var myDataRef = new Firebase('https://popping-heat-9713.firebaseio.com/');
+    var textDict = {}
+    $('#annotation').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var name = $('#annotation').val();
+          var text = $('#emojicode').val();
+          myDataRef.push({name: name, text: text});
+          $('#annotation').val('');
+        }
+      });
+    myDataRef.on("value", function(snapshot) {
+      console.log(snapshot.val());
+      textDict = snapshot.val()
+      console.log(textDict['00a9'])
+      });
+  </script>
+
+</html>

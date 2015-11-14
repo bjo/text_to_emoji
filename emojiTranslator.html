@@ -9,6 +9,25 @@
     <link href="emojiTranslator.css" rel="stylesheet" type="text/css">
   </head>
   <body>
+
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '906878672723149',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
     <h1>Emoji Translator!<img class="emoji" draggable="false" src="images/1f64b_apple.png"></h1>
     <fieldset class="field_set">
       <legend class="legend">Text to Translate:</legend>

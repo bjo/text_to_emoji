@@ -1,5 +1,6 @@
     var myDataRef = new Firebase('https://popping-heat-9713.firebaseio.com/');
     var textDict = {}
+
     //$('#annotation').keypress(function (e) {
     //    if (e.keyCode == 13) {
     //      var name = $('#annotation').val();
@@ -30,7 +31,7 @@
                     if (res[word] === tempList[value])
                     { 
                       console.log(res[word] === tempList[value])
-                      translate.push("U+" + key) //append key
+                      translate.push('<img class="emoji" draggable="false" src="images/' + key + '_apple.png">') //append key
                       found = true
                       break
                     }
@@ -42,6 +43,7 @@
                   }
            }
           console.log(translate)
-          document.getElementById('result').value = translate;
+          var toSend = String(translate.join(" "));
+          document.getElementById('result').innerHTML = toSend;
         }
 

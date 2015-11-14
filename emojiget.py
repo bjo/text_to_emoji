@@ -19,7 +19,7 @@ text = htmlfile.readlines()
 
 outputFile = open('dataset.csv', 'w')
 
-outputFile.write('code,browser,b&w,apple,andr,twit,wind,gmail,name,annotations\n')
+outputFile.write('code,b&w,apple,andr,twit,wind,gmail,name,annotations\n')
 
 for i in range(len(text)):
 	if "<td class='code'>" in text[i]:
@@ -28,16 +28,8 @@ for i in range(len(text)):
 		name = loi[loi.find('name=')+6:loi.find("'", loi.find('name=')+6)]
 		temp = name + ","
 
-		loi = text[i+2] #browser
-		if "td class='miss'" in loi:
-			temp = temp + "missing,"
-		else:
-			image = loi[loi.find('src=')+5:loi.find("'", loi.find('src=')+5)]
-			browser_loc = 'images/' + name + '_browser.png'
-			urllib.urlretrieve(image, browser_loc)
-			temp = temp + browser_loc + ','
 
-		loi = text[i+3] #bw
+		loi = text[i+2] #bw
 		if "td class='miss'" in loi:
 			temp = temp + "missing,"
 		else:
@@ -46,7 +38,7 @@ for i in range(len(text)):
 			urllib.urlretrieve(image, bw_loc)
 			temp = temp + bw_loc + ','
 
-		loi = text[i+4] #apple
+		loi = text[i+3] #apple
 		if "td class='miss'" in loi:
 			temp = temp + "missing,"
 		else:
@@ -55,7 +47,7 @@ for i in range(len(text)):
 			urllib.urlretrieve(image, apple_loc)
 			temp = temp + apple_loc + ','
 
-		loi = text[i+5] #andr
+		loi = text[i+4] #andr
 		if "td class='miss'" in loi:
 			temp = temp + "missing,"
 		else:
@@ -64,7 +56,7 @@ for i in range(len(text)):
 			urllib.urlretrieve(image, andr_loc)
 			temp = temp + andr_loc + ','
 
-		loi = text[i+6] #twit
+		loi = text[i+5] #twit
 		if "td class='miss'" in loi:
 			temp = temp + "missing,"
 		else:
@@ -73,7 +65,7 @@ for i in range(len(text)):
 			urllib.urlretrieve(image, twit_loc)
 			temp = temp + twit_loc + ','
 
-		loi = text[i+7] #wind
+		loi = text[i+6] #wind
 		if "td class='miss'" in loi:
 			temp = temp + "missing,"
 		else:
@@ -82,7 +74,7 @@ for i in range(len(text)):
 			urllib.urlretrieve(image, browser_loc)
 			temp = temp + browser_loc + ','
 
-		loi = text[i+8] #gmail
+		loi = text[i+7] #gmail
 		if "td class='miss'" in loi:
 			temp = temp + "missing,"
 		else:
@@ -96,6 +88,7 @@ for i in range(len(text)):
 		temp = temp + desc + ","
 
 		loi = text[i+14]
+		print loi
 		ind = 0
 		temp_ann = ""
 		while True:
@@ -108,3 +101,4 @@ for i in range(len(text)):
 		temp = temp + temp_ann[1:] + ","
 
 		outputFile.write(temp[:-1] + "\n")
+

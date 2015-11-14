@@ -2,14 +2,14 @@
   <head>
     <title>Text to Emoji Translator</title>
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+    <script src="twemoji.min.js"></script>
     <script src='functions.js'></script>
-    <script src="firebase-as-array.js"></script>
     <meta http-equiv="Content Type" content="text/html; charset=utf-8" />
     <link href="emojiTranslator.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h1>Emoji Translator!</h1>
+    <h1>Emoji Translator!<img class="emoji" draggable="false" src="images/1f64b_apple.png"></h1>
     <fieldset class="field_set">
       <legend class="legend">Text to Translate:</legend>
       <form NAME="myform">
@@ -19,11 +19,10 @@
       </form>
     </fieldset>
     <br>
-    <fieldset class="field_set">
+    <div class="field_set">
       <legend class="legend">Translation:</legend>
-      <INPUT TYPE="text" ID="result" NAME="result" VALUE=""/>
-    </fieldset>
-    <div id='messagesDiv'></div>
+      <span id="result"></span>
+    </div>
     <input type='text' id='emojicode' placeholder='Unicode'>
     <input type='text' id='annotation' placeholder='Annotation'>
 

@@ -1,0 +1,23 @@
+body {
+    background-image: url("background.png");
+    color: #003587;
+    font-family: Nunito;
+    font-size: 30px;
+} 
+h1 {
+	font-family: Nunito;
+	font-size: 100px;
+	font-style: bold;
+	text-align: center;
+}
+
+.field_set {
+	border-color: #4091d9;
+	border-style: solid;
+}
+
+.legend {
+	position: relative;
+	top: -10px;
+	left: 20px;
+}

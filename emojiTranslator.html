@@ -6,19 +6,21 @@
     <script src='functions.js'></script>
     <script src="firebase-as-array.js"></script>
     <meta http-equiv="Content Type" content="text/html; charset=utf-8" />
+    <link href="emojiTranslator.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <h1>Emoji Translator!</h1>
-    <fieldset>
-      <legend>Text to Translate:</legend>
+    <fieldset class="field_set">
+      <legend class="legend">Text to Translate:</legend>
       <form NAME="myform">
 	       <INPUT TYPE="text" NAME="text" VALUE=""/>
 	       <br>
 	       <input type="button" name="button" value="Go!" onClick="printCaps()"/>
       </form>
     </fieldset>
-    <fieldset>
-      <legend>Translation:</legend>
+    <br>
+    <fieldset class="field_set">
+      <legend class="legend">Translation:</legend>
       <INPUT TYPE="text" ID="result" NAME="result" VALUE=""/>
     </fieldset>
     <div id='messagesDiv'></div>

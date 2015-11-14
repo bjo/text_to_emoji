@@ -9,10 +9,10 @@
     <h1>Emoji Translator!</h1>
     <fieldset>
       <legend>Text to Translate:</legend>
-      <form>
-	       <textarea type="text" name="input" rows="5" cols="25">Test message.</textarea>
+      <form NAME="myform">
+	       <INPUT TYPE="text" NAME="text" VALUE=""/>
 	       <br>
-	       <input type="submit" value="Go!">
+	       <input type="button" name="button" value="Go!" onClick="printCaps()"/>
       </form>
     </fieldset>
     <fieldset>
@@ -26,19 +26,51 @@
   <script>
     var myDataRef = new Firebase('https://popping-heat-9713.firebaseio.com/');
     var textDict = {}
-    $('#annotation').keypress(function (e) {
-        if (e.keyCode == 13) {
-          var name = $('#annotation').val();
-          var text = $('#emojicode').val();
-          myDataRef.push({name: name, text: text});
-          $('#annotation').val('');
-        }
-      });
+    //$('#annotation').keypress(function (e) {
+    //    if (e.keyCode == 13) {
+    //      var name = $('#annotation').val();
+    //      var text = $('#emojicode').val();
+     //     myDataRef.push({name: name, text: text});
+     //     $('#annotation').val('');
+     //   }
+      //});
     myDataRef.on("value", function(snapshot) {
       console.log(snapshot.val());
       textDict = snapshot.val()
-      console.log(textDict['00a9'])
       });
+    function printCaps()
+          {
+             var textstr = document.myform.text.value;
+             var res = textstr.split(" ");
+             console.log(res)
+             var translate = []
+             var tempList = []
+             for (var word in res) 
+             {
+              console.log(res[word])
+                found = false
+                for (var key in textDict)
+                  tempList = textDict[key]
+                  for (var value in textDict[key])
+                    console.log(tempList[value])
+                    console.log("sep")
+                    console.log(res[word])
+                    if (res[word] === tempList[value])
+                    { 
+                      translate.push(res[word])
+                      translate.push("U+" + key) //append key
+                      found = true
+                      break
+                    }
+                    if (!found)
+                    {
+                      translate.push(res[word])
+                    }
+             }
+             console.log(translate)
+             document.getElementById('result').value = translate;
+          }
+
   </script>
 
 </html>

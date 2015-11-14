@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Text to Emoji Translator</title>
+    <script type="text/javascript">
+          function printCaps()
+          {
+             var textstr = document.myform.text.value;
+             var res = textstr.split(" ");
+             document.getElementById('result').value = res;
+          }
+    </script>
+  </head>
+  <body>
+    <h1>Emoji Translator!</h1>
+    <fieldset>
+      <legend>Text to Translate:</legend>
+        <FORM NAME="myform">
+	       <INPUT TYPE="text" NAME="text" VALUE=""/>
+	       <br>
+	       <input type="button" name="button" value="Go!" onClick="printCaps()"/>
+        </FORM>
+    </fieldset>
+    <fieldset>
+      <legend>Translation:</legend>
+        <INPUT TYPE="text" ID="result" NAME="result" VALUE=""/>
+      </fieldset>
+  </body>
+</html>

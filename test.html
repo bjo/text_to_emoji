@@ -1,0 +1,24 @@
+<HTML>
+      <HEAD>
+        <TITLE>Sum</TITLE>
+
+        <script type="text/javascript">
+          function printCaps()
+          {
+
+             var num1 = document.myform.text.value;
+             var res = num1.split(" ");
+             document.getElementById('result').value = res;
+          }
+        </script>
+      </HEAD>
+
+      <BODY>
+        <FORM NAME="myform">
+          <INPUT TYPE="text" NAME="text" VALUE=""/>
+          <INPUT TYPE="button" NAME="button" Value="Translate!" onClick="printCaps()"/>
+          <INPUT TYPE="text" ID="result" NAME="result" VALUE=""/>
+        </FORM>
+
+      </BODY>
+</HTML>

@@ -12,17 +12,21 @@
     <h1>Emoji Translator!<img class="emoji" draggable="false" src="images/1f64b_apple.png"></h1>
     <fieldset class="field_set">
       <legend class="legend">Text to Translate:</legend>
-      <form NAME="myform">
-	       <INPUT TYPE="text" NAME="text" VALUE=""/>
-	       <br>
-	       <input type="button" name="button" value="Go!" onClick="printCaps()"/>
-      </form>
+      <div class="input">
+      	<form NAME="myform">
+	       	<textarea TYPE="text" NAME="text" VALUE="" placeholder="Type what you want to translate!" rows="10" cols="50"></textarea>
+	       	<br>
+	       	<input type="button" name="button" value="Go!" onClick="printCaps()"/>
+      	</form>
+      </div>
     </fieldset>
     <br>
-    <div class="field_set">
+    <fieldset class="field_set">
       <legend class="legend">Translation:</legend>
-      <span id="result"></span>
-    </div>
+      <div class="input">
+      	<span class="input" id="result"></span>
+      </div>
+    </fieldset>
     <input type='text' id='emojicode' placeholder='Unicode'>
     <input type='text' id='annotation' placeholder='Annotation'>
 

@@ -28,7 +28,7 @@
                   //console.log(tempList)
                   for (var value in tempList) {
                     //console.log(tempList[value])
-                    if (res[word] === tempList[value])
+                    if (res[word].toLowerCase(); === tempList[value] && !found)
                     { 
                       console.log(res[word] === tempList[value])
                       translate.push('<img class="emoji" draggable="false" src="images/' + key + '_apple.png">') //append key

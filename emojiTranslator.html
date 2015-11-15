@@ -36,9 +36,9 @@ window.fbAsyncInit = function() {
       <legend class="legend">Text to Translate:</legend>
       <div class="input">
       	<form NAME="myform">
-	       	<textarea TYPE="text" NAME="text" VALUE="" placeholder="Type what you want to translate!" rows="10" cols="50"></textarea>
+	       	<textarea TYPE="text" NAME="text" VALUE="" placeholder="Type what you want to translate!" rows="7" cols="50"></textarea>
 	       	<br>
-	       	<input type="button" name="button" value="Go!" onClick="printCaps()"/>
+	       	<input class="myButton" type="button" name="button" value="Go!" onClick="printCaps()"/>
       	</form>
       </div>
     </fieldset>
@@ -47,12 +47,11 @@ window.fbAsyncInit = function() {
       <legend class="legend">Translation:</legend>
       <div class="input">
       	<span class="input" id="result"></span>
+      	<br>
+      	<button class="myButton" onclick="temp_function()" data-size="xlarge" data-show-faces="false">Post on Facebook</button>
+      	<hr style="height:50pt; visibility:hidden;" />
       </div>
     </fieldset>
-    <input type='text' id='emojicode' placeholder='Unicode'>
-    <input type='text' id='annotation' placeholder='Annotation'>
-
-    <button onclick="temp_function()" data-size="xlarge" data-show-faces="false">Post on Facebook</button>
 
 </body>
   

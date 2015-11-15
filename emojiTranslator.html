@@ -10,23 +10,27 @@
   </head>
   <body>
 
-    <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '906878672723149',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-  };
+    <div id="fb-root"></div>
+<script>
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/all.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-    </script>
+window.fbAsyncInit = function() {
+   FB.init({
+     appId      : 'your-app-id',
+     xfbml      : true,
+     version    : 'v2.5'
+   });
+ };
+
+(function(d, s, id) {
+ var js, fjs = d.getElementsByTagName(s)[0];
+ if (d.getElementById(id)) return;
+ js = d.createElement(s); js.id = id;
+ js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=906878672723149";
+ fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+
+</script>
     
     <h1>Emoji Translator!<img class="emoji" draggable="false" src="images/1f64b_apple.png"></h1>
     <fieldset class="field_set">
@@ -48,6 +52,8 @@
     </fieldset>
     <input type='text' id='emojicode' placeholder='Unicode'>
     <input type='text' id='annotation' placeholder='Annotation'>
+
+    <button onclick="temp_function()" data-size="xlarge" data-show-faces="false">Post on Facebook</button>
 
 </body>
   

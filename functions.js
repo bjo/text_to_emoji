@@ -1,14 +1,14 @@
     var myDataRef = new Firebase('https://popping-heat-9713.firebaseio.com/');
     var textDict = {}
 
-    //$('#annotation').keypress(function (e) {
+    // $('#annotation').keypress(function (e) {
     //    if (e.keyCode == 13) {
     //      var name = $('#annotation').val();
     //      var text = $('#emojicode').val();
-     //     myDataRef.push({name: name, text: text});
-     //     $('#annotation').val('');
-     //   }
-      //});
+    //      myDataRef.push({name: name, text: text});
+    //      $('#annotation').val('');
+    //    }
+    //   });
     myDataRef.on("value", function(snapshot) {
       console.log(snapshot.val());
       textDict = snapshot.val()
@@ -26,7 +26,7 @@
                 found = false
                 for (var key in textDict) {
                   tempList = textDict[key]
-                  //console.log(tempList)
+                  console.log(tempList)
                   for (var value in tempList) {
                     //console.log(tempList[value])
                     if (res[word].toLowerCase() === tempList[value] && !found)
@@ -76,4 +76,10 @@ function temp_function() {
     alert(String.fromCharCode(parseInt(intList[0]),parseInt(intList[1])));
   }
 }
+
+// function getRandomImage() {
+//    num = Math.random() * (1281 - 1) + 1;
+//    keys = Object.keys(textDict)
+//    return "images/' + keys[num] + '_apple.png"
+// }
 

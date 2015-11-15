@@ -20,13 +20,12 @@
              var translate = []
              var translate_alt = []
              var tempList = []
-             var intList = []
              for (var word in res) 
              {
                 console.log(res[word])
                 found = false
                 for (var key in textDict) {
-                  tempList = textDict[key]['anno']
+                  tempList = textDict[key]
                   //console.log(tempList)
                   for (var value in tempList) {
                     //console.log(tempList[value])
@@ -34,13 +33,13 @@
                     { 
                       console.log(res[word] === tempList[value])
                       translate.push('<img class="emoji" draggable="false" src="images/' + key + '_apple.png">') //append key
-                      unicode_emoji = String.fromCharCode(key)
-                      translate_alt.push(unicode_emoji) //append key
+                      translate_alt.push(key) //append key
                       found = true
+                      intList = tempList[0]
+                      console.log(intList)
                       break
                     }
                   }
-                  intList = textDict[key]['dec']
                 }
                 if (!found)
                   {
@@ -58,10 +57,11 @@
 FB.login(function(){
  // Note: The call will only work if you accept the permission request
  intList = printCaps();
- if intList.length === 1 {
-    FB.api('/me/feed', 'post', {message: String.fromCharCode(parseInt(intList[0]))});
+ integer_List = intList.split('_')
+ if (integer_List.length === 1) {
+    FB.api('/me/feed', 'post', {message: String.fromCharCode(parseInt(integer_List[0]))});
  } else {
-    FB.api('/me/feed', 'post', {message: String.fromCharCode(parseInt(intList[0]),parseInt(intList[1]))});
+    FB.api('/me/feed', 'post', {message: String.fromCharCode(parseInt(integer_List[0]),parseInt(integer_List[1]))});
   }
 }, {scope: 'publish_actions'});} 
 
@@ -69,7 +69,8 @@ FB.login(function(){
 
 function temp_function() {
   intList = printCaps();
- if intList.length === 1 {
+  integer_List = intList.split('_')
+  if (intList.length === 1) {
     alert(String.fromCharCode(parseInt(intList[0])));
  } else {
     alert(String.fromCharCode(parseInt(intList[0]),parseInt(intList[1])));

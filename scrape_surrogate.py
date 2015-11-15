@@ -38,10 +38,14 @@ for line in input_file.readlines():
                 print str(i)
 
         if html_id not in worddic:
-                worddic[html_id] = {}
+                worddic[html_id] = []
+                if len(arr) == 2:
+                        worddic[html_id].append('_'.join(arr))
+                else:
+                        worddic[html_id].append(arr[0])
+        worddic[html_id] = worddic[html_id] + anno_array
 
-        worddic[html_id]['dec'] = arr
-        worddic[html_id]['anno'] = anno_array
+        #print worddic[html_id]
 
 with open('/Users/brian_jo/Desktop/Playground/text_to_emoji/jsondata.txt', 'w') as outfile:
         json.dump(worddic, outfile)

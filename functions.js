@@ -20,29 +20,21 @@
              var translate = []
              var translate_alt = []
              var tempList = []
+             
              for (var word in res) 
              {
+                var translate_all = []
                 found = false
                 for (var key in textDict) {
                   tempList = textDict[key]
                   for (var value in tempList) {
                     //console.log(tempList[value])
-                    if (res[word].toLowerCase() === tempList[value] && !found)
+                    if (res[word].toLowerCase() === tempList[value])
                     { 
                       console.log(res[word] === tempList[value])
-                      translate.push('<img class="emoji" draggable="false" src="images/' + key + '_apple.png">') //append key
-                      
-                      intList = tempList[0]
-                      integer_List = intList.split('_')
-                          if (integer_List.length === 1) {
-                            translate_alt.push(String.fromCharCode(parseInt(integer_List[0])));
-                         } else {
-                            translate_alt.push(String.fromCharCode(parseInt(integer_List[0]),parseInt(integer_List[1])));
-                          }
-                      
-                      found = true
-                      console.log(intList)
-                      break
+                      translate_all.push(key)
+                      //translate_all.push('<img class="emoji" draggable="false" src="images/' + key + '_apple.png">') //append key
+                      found = true                      
                     }
                   }
                 }
@@ -50,6 +42,19 @@
                   {
                     translate.push(res[word])
                     translate_alt.push(res[word])
+                  } else {
+                    console.log(translate_all)
+                    var rand_element = translate_all[Math.floor(Math.random()*translate_all.length)]
+                    translate.push('<img class="emoji" draggable="false" src="images/' + rand_element + '_apple.png">')
+
+                    intList = textDict[rand_element][0]
+                      integer_List = intList.split('_')
+                          if (integer_List.length === 1) {
+                            translate_alt.push(String.fromCharCode(parseInt(integer_List[0])));
+                         } else {
+                            translate_alt.push(String.fromCharCode(parseInt(integer_List[0]),parseInt(integer_List[1])));
+                    }
+
                   }
            }
           console.log(translate)

@@ -73,8 +73,12 @@ function temp_function() {
 }
 
 // function getRandomImage() {
-//    num = Math.random() * (1281 - 1) + 1;
+//    num = Math.floor(Math.random() * (1281 - 1) + 1);
+//    console.log(num)
 //    keys = Object.keys(textDict)
-//    return "images/' + keys[num] + '_apple.png"
+//    console.log(keys)
+//    str = "images/" + keys[num] + "_apple.png"
+//    console.log(str)
+//    return str
 // }
 
